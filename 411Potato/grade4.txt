@@ -1,0 +1,15 @@
+ 9/10% - Mechanics (submitted, readme)
+  5/5% - submitted on time
+  4/5% - readme present and informative [1]
+60/60% - Running
+  10/10% - Compiles & runs
+  20/20% - Obeys rules
+  30/30% - Works with simulator
+30/30% - Robot program
+  10/10% - Assembly robot program
+  10/10% - Scans
+  10/10% - Fires
+------
+99/100% Total
+
+[1] Compilation instructions incomplete

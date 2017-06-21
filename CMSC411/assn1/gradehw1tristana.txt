@@ -1,0 +1,61 @@
+/10% - Readme
+Received: 8
+Remark: Bug report from your code is required (not what you not done). If possible, explain a bit more about the structure of coding, status of coding e.g. complete, 80% or etc.
+
+/10% - git: successful commit on time, multiple commits in development
+Received: 10
+Remark: Good commit in development: 10 out of 13 commits.
+
+/10% - Compiles and executes without error
+Received: 10
+
+/10% - Basic parsing (labels, instructions, comments, empty lines)
+Received: 10
+
+/5% - Recognize all required opcodes
+Received: 5
+
+/5% - Correct label handling and address counting
+Received: 5
+Remark: Pass both test cases
+
+/5% - Correct register handling
+Received: 3
+Remark: Small error for input1.txt (bne registers)
+
+/5% - Correct immediate constant handling
+Received: 5
+Remark: Pass test on both test cases
+
+/5% - Parse and encode "int" pseudo instruction
+Received: 5
+
+/5% - Parse and encode R-type instructions
+Received: 5
+
+/5% - Parse and encode J-type instructions
+Received: 5
+
+/5% - Parse and encode arithmetic I-type instructions
+Received: 5
+
+/5% - Parse and encode beq and bne (I-type 2 register)
+Received: 5
+Remark: Small error for input1.txt but already deduct bove
+
+/5% - Parse and encode blez and bgtz (I-type 1 register)
+Received: 5
+Remark: Pass test for bgtz
+
+/10% - No other bugs discovered
+Received: 10
+
+------------------
+
+/100% Total
+HW1 Grade: 96/100
+
+Remarks: 
+1. Please don't lost the point for readme.txt. State as much as you can. Big points!
+2. Nice coding style, both comments, format and naming.
+3. Very good job!

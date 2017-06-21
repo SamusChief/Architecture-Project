@@ -1,0 +1,45 @@
+10/10% - Mechanics (submitted, readme)
+  5/5% - submitted on time
+  5/5% - readme present and informative
+20/20% - Datapath structure
+  5/5% - Single memory unit
+  5/5% - Nothing impossible
+  5/5% - All necessary multiplexers
+  5/5% - Capable of all instructions
+14/15% - Datapath Timing
+  5/5% - Unit timings
+  4/5% - Feasible multi-cycle division [1]
+  5/5% - Per cycle timing, valid clock
+15/15% - RTL mechanics
+  5/5% - Shared IF and ID
+  5/5% - Per-operation cycles
+  5/5% - Return to IF for next instruction
+37/40% - RTL specifics
+  5/5% - R-type jump: jr, jalr
+  5/5% - R-type ALU: add, addu, sub, subu, and, or, xor, nor
+  5/5% - J-type: j, jal
+  2/5% - I-type branch: beq, bne, blez, bgtz [2]
+  5/5% - I-type ALU: addi, addiu, andi, ori, xori, lui
+  5/5% - I-type mem: lw, sw
+  5/5% - C-type output: spd, rot, fir [3]
+  5/5% - C-type input: ascn, dscn [4]
+------
+96/100% Total
+
+[1] Need register to hold robot unit output between end of stage and
+multiplexer for WB stage. You'd need to increase your cycle time
+slightly. Alternately, you could have a mux into the existing X stage
+register, but that'd increase your cycle time more.
+
+[2] Branches use their own adder in your datapath, not X. X should be used for subtraction to do compare in beq and bne. Address when not branching should be NPC, not PC. In other words:
+  31,beq0,X = R1 - R2; next = 32
+  32,beq1,PC = (X==0) ? NPC + imm<<2 : NPC; next = 0
+
+[3] Would be RobotIn = X. That it's spd would be a control signal, but
+the data input is the same no matter which of the robot instructions
+it is. -- Update: I'm willing to accept that as plausible RTL to
+indicate what that control signal should be. A little confusing due to
+overloading the input and the control selection, but I have restored
+the lost point.
+
+[4] Would be R[IR(15-11)] = RobotOut (or the register you assigned RobotOut into the previous cycle). There's only one robot data output. Which operation it does is also a control signal, not separate data paths. -- Update: By the same reason as [3], I have restored the lost point here.

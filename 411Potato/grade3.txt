@@ -1,0 +1,16 @@
+10/10% - Mechanics (submitted, readme)
+   5/5% - submitted on time
+   5/5% - readme present and informative
+20/20% - Simulation changes
+  10/10% - Print clock cycle
+  10/10% - Read number each cycle
+70/70% - Multi-cycle operation
+  10/10% - Print something every cycle
+  10/10% - Print robot code at beginning of robot cycle
+  10/10% - Print correct robot code for instruction
+  10/10% - Get scan results from cycle number
+  10/10% - Everything fits in the cycle time given
+  10/10% - Anything that takes multiple cycles takes the right number
+  10/10% - Other problems
+------
+100/100% Total

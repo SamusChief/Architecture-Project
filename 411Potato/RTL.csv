@@ -1,0 +1,45 @@
+state,operation,RTL steps
+0,IF,IR = IMem[PC]; NPC = PC + 4; next = 1
+1,ID,"R1 = R[IR(25-21)], R2 = R[IR(20-16)]; IMM = signExt(IR(15-0)); next = decode(IR).state"
+2,WB,R[RD] = X; PC = NPC; state = 0
+3,j,PC = IR(25-0) << 2; next = 0
+4,jal,PC = IR(25-0) << 2; R[31] = NPC; next = 0
+5,jr,PC = R1; next = 0
+6,jalr,PC = R1; R[31] = NPC; next = 0
+7,add,X = R1 + R2; RD = IR(15-11); next = 2
+8,addu,X = R1 + R2; RD = IR(15-11); next = 2
+9,sub,X = R1 - R2; RD = IR(15-11); next = 2
+10,subu,X = R1 - R2; RD = IR(15-11); next = 2
+11,and,X = R1 & R2; RD = IR(15-11); next = 2
+12,or,X = R1 | R2; RD = IR(15-11); next = 2
+13,xor,X = R1 ^ R2; RD = IR(15-11); next = 2
+14,nor,X = ~(R1 | R2); RD = IR(15-11); next = 2
+15,addi,X = R1 + IMM; RD = IR(20-16); next = 2
+16,addiu,X = R1 + IMM; RD = IR(20-16); next = 2
+17,andi,X = R1 & IMM; RD = IR(20-16); next = 2
+18,ori,X = R1 | IMM; RD = IR(20-16); next = 2
+19,xori,X = R1 ^ IMM; RD = IR(20-16); next = 2
+20,lui,X = IMM << 16; RD = IR(20-16); next = 2
+21,beq0,X = R1 - R2; next = 22
+22,beq1,PC = (X == 0) ? NPC + imm<<2 : NPC; next = 0;
+23,bne0,X = R1 - R2; next = 24
+24,bne1,PC = (X != 0) ? NPC + imm<<2 : NPC; next = 0;
+25,blez0,X = R1; next = 26
+26,blez1,PC = (X <= 0) ? NPC + imm<<2 : NPC; next = 0;
+27,bgtz0,X = R1; next = 28
+28,bgtz1,PC = (X > 0) ? NPC + imm<<2 : NPC; next = 0;
+29,lw0,X = IMM + R1; next = 30
+30,lw1,R[IR(20-16)] = IMem[X]; PC = NPC; next = 0
+31,sw0,X = IMM + R1; next = 32
+32,sw1,IMem[X] = R[IR(20-16)]; PC = NPC; next = 0
+33,spd0,X = R2 + IMM; next = 34
+34,spd1,SPEED = X; PC = NPC; next = 0
+35,rot0,X = R2 + IMM; next = 36
+36,rot1,ROT_RATE = X; PC = NPC; next = 0
+37,fir0,X = R2 + IMM; next = 38
+38,fir1,FIRE = X; PC = NPC; next = 0
+39,ascn0,RobotFunc=A; next = 40
+40,ascn1,RF = ANGLE_SCAN(); RD = IR(20-16); next = 43
+41,dscn0,RobotFunc=D; next = 42
+42,dscn1,RF = DIST_SCAN(); RD = IR(20-16); next = 43
+43,RWB,R[RD] = RF; PC = NPC; next = 0

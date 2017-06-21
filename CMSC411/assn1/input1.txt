@@ -1,0 +1,13 @@
+      addi $1, $0, #-12    ; x = -12 = offset to end of data table
+      add  $2, $0, $0     ; y = 0
+:loop bgtz $1, :end       ; jump to end when x>0
+      addi $1, $1, #4     ; x = x + 4 (1 word)
+      lw   $3, :data($1)  ; z = data[x]
+      add  $2, $2, $3     ; y = y + z
+      bne  $1, $2, :loop  ; jump to loop when x!=y
+:end  j    :end           ; loop forever to end
+
+:data                     ; label can be on its own line
+      int  #0             ; data pseudo-instructions
+      int  #1
+      int  #2

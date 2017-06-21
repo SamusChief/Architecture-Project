@@ -1,0 +1,56 @@
+/10% - Readme
+Received: 9
+Remark: Explain how to execute the program separately. 
+ 
+/10% - git: successful commit on time, multiple commits in development
+Received: 10
+Remark: Good commit in development - 10 commits since Sep 9. 
+
+/20% - unsigned-multiply
+    5/5% - Compiles and executes without error
+    5/5% - Single loop, only legal instructions
+    5/5% - Correct results less than 32 bits (e.g. 0*0, 1*1, 502*19)
+    5/5% - Correct results bigger than 32 bits (e.g. 0x3d724be0 * 0x222f1e8d)
+Received: 20
+
+/10% - extra credit
+    0/5% - Use 64-bit combined product/multiplier register
+    0/5% - Use only 32-bit addition
+Received: 0
+
+/20% - signed-multiply
+    5/5% - Compiles and executes without error
+    5/5% - Single loop, only legal instructions
+    5/5% - Correct positive results (e.g. 1*1, -1*-1, 502*19)
+    5/5% - Correct negative results (e.g. -502 * 19 502 * -19)
+Received: 20
+
+/20% - float-multiply
+    5/5% - Compiles and executes without error
+    7/7% - Regular multiplication (e.g. 1*1, -100*1023, 0.5*-0.75, 100*0.5)
+    4/4% - Handle inf/nan input cases
+    1/1% - Overflow (3.4e38 * 3.4e38, -3.4e38 * 3.4e38)
+    0.25/1% - Subnormal operands (1e38 * 1e-38)
+    0.25/1% - Subnormal result (1 * 1e-38, 1e-19*1e-19)
+    0.25/1% - Zero result (0 * 1, 2e-45 * 2e-45)
+Received: 17.75
+Remark: Mismatch 1e38 * 1e-38, 1e-19*1e-19, 2e-45 * 2e-45. "floating-point multiplication with only intger operations" is assumed to be a statement, not a bug, but there are 3 test cases fail.
+
+/20% - float-add
+    5/5% - Compiles and executes without error
+    5/5% - Regular addition (e.g. 8+9, 0.75+10, 10 + 0.75)
+    3/4% - Handle inf/nan input cases
+    1/1% - Negative operands (e.g. 1 + -2, -3 + 1, -7 + -8)
+    1/1% - Loss of precision (e.g. 1.7e7 + 1, 1 + 5e-8)
+    0.5/1% - Overflow (3.4e38 + 3.4e38, -3.4e38 + -3.4e38)
+    0.5/1% - Subnormal operands (1e-38 + 1e-38)
+    0.5/1% - Subnormal result (0.5e-38 + 0.5e-38, 5e-38 + -4e-38)
+    1/1% - Zero result (1 + -1, 0 + 0)
+Received: 17.5
+Remark: Mismatch -inf+inf, 3.4e38 + 3.4e38, 1e-38 + 1e-38, 5e-38 + -4e-38. Bugs reported in readme.txt.
+
+----
+
+94.25/100% Total
+
+Very good job!
